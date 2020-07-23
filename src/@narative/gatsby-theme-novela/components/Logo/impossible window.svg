@@ -1,0 +1,28 @@
+<svg width="326" height="326" viewBox="0 0 326 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="impossible window">
+<g id="bottom arm">
+<path id="bottom arm/bicep" d="M122.764 216.045L149.362 187.522L183.004 218.894L183.942 245.748L198.569 259.388L211.527 245.492L226.154 259.132L199.556 287.655L122.764 216.045Z" fill="black"/>
+<path id="bottom arm/bicep edge" d="M149.362 187.522L183.004 218.894L183.942 245.748L198.569 259.388L211.527 245.492L226.154 259.132" stroke="black" stroke-width="0.1"/>
+<path id="bottom arm/outside" d="M119.141 122.423L107.073 111.17L110.972 222.824L190.775 297.071L199.556 287.655L122.764 216.045L119.141 122.423Z" fill="#798086" stroke="black" stroke-width="0.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="bottom arm/just the tip" d="M115.939 101.662L107.073 111.17L119.141 122.423L128.006 112.915L115.939 101.662Z" fill="black" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+<path id="bottom arm/forearm" d="M119.141 122.423L128.006 112.915L147.387 130.988L149.362 187.522L122.764 216.045L119.141 122.423Z" fill="black" stroke="black" stroke-width="0.1"/>
+</g>
+<g id="top arm">
+<path id="top arm/tricep" d="M126.488 39.0304L98.5258 69.0159L195.064 159.04L223.026 129.054L126.488 39.0304Z" fill="black"/>
+<path id="top arm/tricep edge" d="M126.488 39.0304L223.026 129.054" stroke="black" stroke-width="0.1"/>
+<path id="top arm/forearm" d="M226.531 229.402L223.026 129.054L195.064 159.04L198.569 259.388L226.531 229.402Z" fill="black" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+<path id="top arm/outside" d="M99.118 85.9761L98.5258 69.0159L195.064 159.04L198.569 259.388L183.942 245.748L181.03 162.36L99.118 85.9761Z" fill="#798086" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+</g>
+<g id="borders">
+<g id="insets">
+<path id="insets/top left" d="M161.952 1L126.488 39.0304L135.995 47.8964L162.593 19.3736L161.952 1Z" fill="black" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+<path id="insets/top" d="M162.593 19.3736L161.952 1L325.043 153.086L316.178 162.593L162.593 19.3736Z" fill="#798086" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+<path id="insets/bottom left" d="M99.118 85.9761L98.5258 69.0159L0.99999 173.599L9.77623 181.783L99.118 85.9761Z" fill="black" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+</g>
+<g id="edges">
+<path id="edges/bottom" d="M0.999982 173.599L164.092 325.685L199.556 287.655" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+<path id="edges/right" d="M226.154 259.132L325.043 153.086" stroke="black" stroke-width="0.1" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>
