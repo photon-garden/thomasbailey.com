@@ -3,7 +3,7 @@ title: Styling nested Svelte components with global CSS
 author: Thomas Bailey
 date: 2020-07-28
 hero: ./images/hero.jpg
-excerpt:
+excerpt: How to style child components without changing their implementation or leaking styles to the rest of your app.
 ---
 
 In Svelte, we normally want components to [be their own boss](https://github.com/sveltejs/rfcs/pull/22#issuecomment-664047806), which means we shouldn't mess with their styling. But if you can't change the child component's implementation and you need it to look different, the [`:global(...)`](https://svelte.dev/docs#style) modifier is the right tool for the job.
