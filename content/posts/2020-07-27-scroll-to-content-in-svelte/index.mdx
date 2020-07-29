@@ -1,0 +1,125 @@
+---
+title: How do you scroll to specific content in Svelte?
+author: Thomas Bailey
+date: 2020-07-27
+hero: ./images/hero.jpg
+excerpt: You might've seen that you can use id attributes and <a> tags to scroll to a specific section of a page. But how exactly do you do it?
+---
+
+You might've seen that you can use `id` attributes and `<a>` tags to scroll to a specific section of a page. But how exactly do you do it? You might be wondering:
+
+- _The link doesn't jump to the right part of the page unless I right click and open a new browser tab. Why did that happen?_
+- _If it's on the home page of my site, should the href be **`/#first-section`** or **`#first-section`**?_
+- _Does Svelte handle this differently from regular HTML? Or is it a svelte-routing thing?_
+
+Fortunately, the answer's pretty simple.
+
+# What we're going to build
+
+We're going to build a page with a table of contents and three sections. Here's what it looks like:
+
+<iframe
+  style={{
+    width: '100%',
+    height: '500px',
+    maxWidth: '744px',
+    border: 'none',
+    boxShadow:
+      '0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33)',
+    margin: '15px auto 50px'
+  }}
+  src={
+    'https://svelte.dev/repl/7fb76306ec3642df950832de9d9a7f18?version=3.24.0'
+  }
+/>
+
+# Setting up the links
+
+The HTML for the table of contents looks like this:
+
+```html
+<ol>
+  <li><a href="#first-section">First Section</a></li>
+  <li><a href="#second-section">Second Section</a></li>
+  <li><a href="#third-section">Third Section</a></li>
+</ol>
+```
+
+Take a look at the `href` attributes for each `<a>` tag. Notice how they all start with a hashtag: `#first-section`, `#second-section`, and `#third-section`.
+
+This leads us to our first rule: **Our hrefs should look like `#an-element-id`. Everything after the hashtag is an element id. What element? The one you're linking to.**
+
+# Setting up the sections
+
+In our example we're linking to a few `<h2>` tags. Here's the HTML for the first one:
+
+```html
+<h2 id="first-section">
+  First Section
+</h2>
+```
+
+Notice how the id is just `first-section`, without the hashtag. That's our second rule: **The id we're linking to should look like `an-element-id`. There's no leading hashtag.**
+
+# A tiny example
+
+Combining those two rules, here's a tiny working example:
+
+```html
+<a href="#first-section">
+  Go to the first section
+</a>
+
+<h2 id="first-section">
+  First Section
+</h2>
+```
+
+# Expanding our tiny example
+
+Let's expand our tiny example so that it's closer to a real page. We'll add a little bit of content, and some links that take us back to the top of the page.
+
+First we start with our page title and table of contents. Notice how our ids and hrefs follow the rules we defined above.
+
+```html
+<h1 id="top-of-page">
+  Scroll To A Specific Section
+</h1>
+
+<strong>Table Of Contents</strong>
+
+<ol>
+  <li><a href="#first-section">First Section</a></li>
+  <li><a href="#second-section">Second Section</a></li>
+  <li><a href="#third-section">Third Section</a></li>
+</ol>
+```
+
+Then let's add the first section, including a link that takes us back to the top of the page.
+
+```html
+<h2 id="first-section">
+  First Section
+</h2>
+
+<!--
+	This will take the user back to the top of the
+	page when they click on it.
+-->
+
+<a href="#top-of-page">Back to top</a>
+
+<p>
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+</p>
+```
+
+And that's pretty much it! We can add a second and third sections by following the same pattern as the first section.
+
+# You have a new ability! 🎉
+
+You gained the ability to make links that scroll to any section of the page, no JS required! Oh, and this technique works equally well in both Svelte and vanilla HTML!
+
+# I still have questions!
+
+That's totally okay! I'm sure I have answers for you. [Message me on Twitter](https://twitter.com/noise_machines) and I'll be glad to help you out.

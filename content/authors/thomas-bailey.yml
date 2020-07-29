@@ -1,13 +1,11 @@
 name: Thomas Bailey
 bio: |
-  I’m building a software consultancy so my friends and I can travel together
-  making art and music. More generally, I care about creating financial freedom
-  for folks through fun and meaningful work.
+  I'm an expert software engineer with more than ten years experience. I co-founded
+  Datajoy, a consultancy that specializes in artificial
+  intelligence, cloud computing, and user experience. I care a lot about making
+  tech easy to understand.
 avatar: ./avatars/thomas-bailey.png
 social:
-  - url: https://unsplash.com
-  - url: https://stackoverflow.com
-  - url: https://github.com
-  - url: https://github.com
-  - url: https://github.com
+  - url: https://twitter.com/noise_machines
+  - url: http://github.com/noise-machines
 featured: true

@@ -1,0 +1,113 @@
+---
+title: Styling nested Svelte components with global CSS
+author: Thomas Bailey
+date: 2020-07-28
+hero: ./images/hero.jpg
+excerpt:
+---
+
+In Svelte, we normally want components to [be their own boss](https://github.com/sveltejs/rfcs/pull/22#issuecomment-664047806), which means we shouldn't mess with their styling. But if you can't change the child component's implementation and you need it to look different, the [`:global(...)`](https://svelte.dev/docs#style) modifier is the right tool for the job.
+
+# What we're going to build
+
+We'll build a little color palette display, with colors taken from [Color Hunt](https://colorhunt.co/palette/181883).
+
+<iframe
+  style={{
+    width: '100%',
+    height: '500px',
+    maxWidth: '744px',
+    border: 'none',
+    boxShadow:
+      '0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33)',
+    margin: '15px auto 50px'
+  }}
+  src={
+    'https://svelte.dev/repl/6fbc80ba9fe944d0a9c09023c4485247?version=3.24.0'
+  }
+/>
+
+# Our components
+
+Each color in our palette is represented by an instance of the ColorSwatch class, which is a very simple creature. By default it just renders a 50x50 div:
+
+```html
+<!-- ColorSwatch.svelte -->
+
+<style>
+  .color-swatch {
+    width: 50px;
+    height: 50px;
+  }
+</style>
+
+<div class="color-swatch"></div>
+```
+
+But our outer component is a little more interesting:
+
+```html
+<!-- App.svelte -->
+
+<style>
+  :global(.container > *) {
+    height: 25% !important;
+    width: 100% !important;
+  }
+
+  :global(.container > :nth-child(1)) {
+    background: #eb6383;
+  }
+
+  /* etc */
+</style>
+
+<div class="container">
+  <ColorSwatch />
+  <ColorSwatch />
+  <ColorSwatch />
+  <ColorSwatch />
+</div>
+```
+
+Notice how we're targeting our color swatches: `:global(.container > *)`. It uses Svelte's :global(...) modifier so that the rule affects elements outside the current component, but we limit its influence with the .container class and the CSS [child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator) (>). We use the [universal selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors) (\*) to target _any_ of our container's direct children, which lets us pretend a little ignorance of our child components' markup.
+
+# _Really_ preventing style leak
+
+If we used a class called "container" elsewhere in our app, our global rule could still leak out and wreak havoc on our carefully crafted UI. If we're concerned about that, we can [manually generate](https://www.uuidgenerator.net/) a unique identifier and append it to our container class, like so:
+
+```html
+<!-- App.svelte -->
+
+<style>
+  :global(.container-bacf979e > *) {
+    height: 25% !important;
+    width: 100% !important;
+  }
+
+  :global(.container-bacf979e > :nth-child(1)) {
+    background: #eb6383;
+  }
+
+  /* etc */
+</style>
+
+<div class="container-bacf979e">
+  <ColorSwatch />
+  <ColorSwatch />
+  <ColorSwatch />
+  <ColorSwatch />
+</div>
+```
+
+# Further reading
+
+If you want to dive deeper into the conversation around CSS scoping in Svelte, I recommend starting with [this post](https://github.com/sveltejs/rfcs/pull/22#issuecomment-664047806) by [pngwn](https://github.com/pngwn). There's also [this (infamous) GitHub issue](https://github.com/sveltejs/svelte/issues/2870).
+
+# You have a new ability! 🎉
+
+Now you can style child components without mucking up the rest of your app! Congrats! If you have other thoughts on this topic, I'd love to hear them on [Twitter](https://twitter.com/noise_machines).
+
+# I still have questions!
+
+That's totally okay! I'm sure I have answers for you. [Message me on Twitter](https://twitter.com/noise_machines) and I'll be glad to help you out.
